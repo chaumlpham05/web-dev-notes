@@ -19,21 +19,44 @@
   ...
   <nav>
     <ul class="nav-list">
-      <li><a href="/index.html">Trang chủ</a></li>
+      <li><a href="../index.html">Trang chủ</a></li>
       <li><a href="#">Dịch vụ</a></li>
       ...
     </ul>
   </nav>
 
   <div class="auth-links">
-    <a href="/pages/login.html" class="auth-link">Đăng nhập</a>
-    <a href="/pages/register.html" class="auth-link">Đăng ký</a>
+    <a href="./login.html" class="auth-link">Đăng nhập</a>
+    <a href="./pages/register.html" class="auth-link">Đăng ký</a>
   </div>
   ...
 </header>
 
-## 💻 Đoạn mã JavaScript hoàn chỉnh
+🎨 CSS đi kèm
+```css
+/* ===== ĐỔI MÀU CHO LINK ĐANG TRONG TRẠNG THÁI "ACTIVE" ===== */
 
+/* 
+ * Khi link trong phần "Đăng nhập / Đăng ký" (auth-link) được active
+ * hoặc khi người dùng di chuột vào link trong menu (nav-item > a:hover),
+ * thì sẽ đổi màu chữ thành màu tím chủ đạo của thương hiệu (#410075)
+ */
+.auth-link.active,
+.nav-item > a:hover {
+  color: #410075;
+}
+
+/* 
+ * Dành cho bất kỳ thẻ <a> nào được gán class "active"
+ * => Áp dụng cho cả link Trang chủ, Dịch vụ, Blog, v.v.
+ * Class này được thêm bằng JavaScript dựa theo URL trang hiện tại
+ */
+a.active {
+  color: #410075;
+}
+
+## 💻 Đoạn mã JavaScript hoàn chỉnh
+```js
 // ========================================================================
 // 🌟 ACTIVE-LINK.JS — Tự động gán class "active" cho các link <a> trong <header>
 // ------------------------------------------------------------------------

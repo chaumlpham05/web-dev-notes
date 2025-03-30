@@ -19,8 +19,8 @@
   ...
   <nav>
     <ul class="nav-list">
-      <li><a href="../index.html">Trang chủ</a></li>
-      <li><a href="#">Dịch vụ</a></li>
+      <li class="nav-item"><a href="../index.html">Trang chủ</a></li>
+      <li class="nav-item"><a href="#">Dịch vụ</a></li>
       ...
     </ul>
   </nav>

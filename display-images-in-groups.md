@@ -315,3 +315,116 @@ function displayMoreProducts(){ // Đây là cách khai báo một hàm (functio
     //      ...	              ...	          ...	     ...	            ...
 }
 ```
+
+---
+
+## 🧾 Full JavaScript Code - ES6 syntax (with Explanation)
+
+```javascript
+// (ES6 syntax)
+// Dùng const products = [...] thay vì var products = [...]
+// const: đảm bảo không thay đổi giá trị mảng 
+const products = [
+    "images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg",
+    "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg",
+    "images/9.jpg", "images/10.jpg", "images/11.jpg", "images/12.jpg",
+    "images/13.jpg", "images/14.jpg", "images/15.jpg", "images/16.jpg",
+    "images/17.jpg", "images/18.jpg", "images/19.jpg", "images/20.jpg",
+    "images/21.jpg", "images/22.jpg", "images/23.jpg", "images/24.jpg"
+];
+
+// ✅ Biến theo dõi vị trí hiện tại (dùng let vì sẽ thay đổi)
+// Dùng let currentIndex = 0 thay vì var currentIndex = 0
+// let: cho phép thay đổi giá trị an toàn hơn
+// ✅ Lợi ích: Tránh lỗi rò rỉ phạm vi biến (scope) và đảm bảo an toàn khi dùng.
+let currentIndex = 0;
+
+// ✅ Lấy phần tử nút bằng cú pháp hiện đại
+const btnSeeMore = document.getElementById("btnSeeMore");
+
+// ✅ Gán sự kiện click (arrow function cho gọn)
+// Dùng addEventListener() thay vì .onclick
+//  ✅ Lợi ích:
+//              Cho phép gán nhiều sự kiện cùng lúc
+//              Cách viết hiện đại hơn
+//              Dễ quản lý & bảo trì code
+btnSeeMore.addEventListener("click", () => {
+  displayMoreProducts();
+});
+
+// ✅ Hàm hiển thị ảnh (dùng cú pháp function hiện đại - arrow function)
+// Dùng arrow function thay vì function: function displayMoreProducts() → const displayMoreProducts = () => {}
+// ✅ Lợi ích:
+//              Gọn gàng, rõ ràng
+//              Không bị thay đổi this (rất quan trọng khi làm với object hoặc class)
+//              Hợp thời, chuẩn ES6
+const displayMoreProducts = () => {
+  const container = document.getElementById("divSearchResult");
+
+  if (currentIndex >= products.length) {
+    alert("Đã hiển thị toàn bộ sản phẩm!");
+    return;
+  }
+
+  const limit = Math.min(currentIndex + 4, products.length);
+
+  // ✅ Sử dụng DocumentFragment để tối ưu hiệu năng khi thêm nhiều phần tử (nhiều ảnh)
+  const fragment = document.createDocumentFragment();
+
+  for (let i = currentIndex; i < limit; i++) {
+    const img = document.createElement("img");
+    img.src = products[i];
+    img.className = "col-md-3 col-sm-6 col-xs-12 thumbnail";
+
+    // Thay vì gán container.appendChild(img) trong mỗi vòng lặp
+    // Cách làm mới: Tạo fragment, thêm ảnh vào fragment, rồi gắn 1 lần
+    // ✅ Lợi ích:
+    //              Chỉ thay đổi DOM 1 lần duy nhất
+    //              Giảm giật lag khi có nhiều ảnh
+    //              Cải thiện hiệu năng, nhất là với dữ liệu lớn
+    fragment.appendChild(img); // Thêm vào fragment thay vì trực tiếp vào DOM
+  }
+
+  container.appendChild(fragment); // Gắn toàn bộ ảnh vào DOM chỉ 1 lần
+
+  currentIndex = limit;
+};
+
+// 🔄 LUỒNG DỮ LIỆU TỔNG QUÁT (DATA FLOW)
+// 1️⃣ Trang web được tải lần đầu:
+//    ├─ Biến products[] được tạo, chứa 24 ảnh
+//    ├─ currentIndex = 0 (chưa hiển thị gì)
+//    └─ Lấy nút btnSeeMore và gán sự kiện click
+
+// 2️⃣ Người dùng click vào nút “Xem thêm”:
+//    └─ Gọi hàm displayMoreProducts()
+
+// 3️⃣ Trong hàm displayMoreProducts():
+//    ├─ Tìm phần tử container (divSearchResult)
+//    ├─ KIỂM TRA:
+//    │   ├─ Nếu currentIndex >= products.length:
+//    │   │   └─ ➤ Hiển thị alert “Đã hiển thị toàn bộ sản phẩm!”
+//    │   │      ➤ Kết thúc hàm (return)
+//    │   └─ Ngược lại:
+//    │       ➤ Còn ảnh để hiển thị → Tiếp tục
+
+// 4️⃣ TÍNH GIỚI HẠN:
+//    └─ limit = Math.min(currentIndex + 4, products.length)
+//       ➤ Hiển thị tối đa 4 ảnh hoặc ít hơn nếu sắp hết
+
+// 5️⃣ LẶP HIỂN THỊ ẢNH:
+//    ├─ Tạo fragment chứa ảnh mới
+//    ├─ for i = currentIndex → limit - 1:
+//    │   ├─ Tạo thẻ <img>
+//    │   ├─ Gán ảnh: img.src = products[i]
+//    │   ├─ Gán class CSS để ảnh hiển thị đẹp
+//    │   └─ Gắn ảnh vào fragment
+//    └─ Sau vòng lặp: Gắn fragment vào container
+
+// 6️⃣ CẬP NHẬT VỊ TRÍ:
+//    └─ currentIndex = limit
+//       ➤ Sẵn sàng cho lần click tiếp theo
+
+// 7️⃣ Lần sau bấm nút:
+//    └─ Lặp lại từ bước 2 ➝ Cho đến khi hết ảnh
+```

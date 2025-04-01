@@ -188,30 +188,12 @@ currentIndex = limit;
 // products[23] là "images/24.jpg"
 // 🎯 Ý nghĩa: Đây là danh sách 24 tấm hình cần được hiển thị trên trang web. Mỗi lần bấm nút “Xem thêm”, mình sẽ lấy hình từ trong mảng này ra để hiển thị dần.
 var products = [
-    "images/1.jpg",
-    "images/2.jpg",
-    "images/3.jpg",
-    "images/4.jpg",
-    "images/5.jpg",
-    "images/6.jpg",
-    "images/7.jpg",
-    "images/8.jpg",
-    "images/9.jpg",
-    "images/10.jpg",
-    "images/11.jpg",
-    "images/12.jpg",
-    "images/13.jpg",
-    "images/14.jpg",
-    "images/15.jpg",
-    "images/16.jpg",
-    "images/17.jpg",
-    "images/18.jpg",
-    "images/19.jpg",
-    "images/20.jpg",
-    "images/21.jpg",
-    "images/22.jpg",
-    "images/23.jpg",
-    "images/24.jpg"
+    "images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg",
+    "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg",
+    "images/9.jpg", "images/10.jpg", "images/11.jpg", "images/12.jpg",
+    "images/13.jpg", "images/14.jpg", "images/15.jpg", "images/16.jpg",
+    "images/17.jpg", "images/18.jpg", "images/19.jpg", "images/20.jpg",
+    "images/21.jpg", "images/22.jpg", "images/23.jpg", "images/24.jpg"
 ];
 
 //Handle SeeMore button by Tin Trinh 2020.04.19

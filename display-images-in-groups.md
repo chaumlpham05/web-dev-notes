@@ -173,3 +173,56 @@ currentIndex = limit;
 7️⃣ Lần sau bấm nút:
    └─ Lặp lại từ bước 2 ➝ Cho đến khi hết ảnh
 ```
+
+---
+
+## 🧾 Full JavaScript Code (with Explanation)
+
+```javascript
+// Đây là một mảng (array) trong JavaScript.
+// Mảng tên là products
+// Bên trong chứa 24 chuỗi (string), mỗi chuỗi là đường dẫn của một ảnh (tên file).
+// products[0] là "images/1.jpg"
+// ...
+// 🎯 Ý nghĩa: Đây là danh sách 24 tấm hình cần được hiển thị trên trang web.
+var products = [
+    "images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg",
+    "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg",
+    "images/9.jpg", "images/10.jpg", "images/11.jpg", "images/12.jpg",
+    "images/13.jpg", "images/14.jpg", "images/15.jpg", "images/16.jpg",
+    "images/17.jpg", "images/18.jpg", "images/19.jpg", "images/20.jpg",
+    "images/21.jpg", "images/22.jpg", "images/23.jpg", "images/24.jpg"
+];
+
+// Biến ghi nhớ đã hiển thị tới đâu trong mảng
+var currentIndex = 0;
+
+// Lấy nút "Xem thêm" từ HTML
+var btnSeeMore = document.getElementById("btnSeeMore");
+
+// Khi bấm nút, gọi hàm hiển thị thêm ảnh
+btnSeeMore.onclick = function(){
+    displayMoreProducts();
+};
+
+// Hàm chính hiển thị ảnh
+function displayMoreProducts(){
+    var container = document.getElementById("divSearchResult");
+
+    if (currentIndex >= products.length) {
+        alert("Đã hiển thị toàn bộ sản phẩm!");
+        return;
+    }
+
+    let limit = Math.min(currentIndex + 4, products.length);
+
+    for (var i = currentIndex; i < limit; i++) {
+        var img = document.createElement("img");
+        img.src = products[i];
+        img.className = "col-md-3 col-sm-6 col-xs-12 thumbnail";
+        container.appendChild(img);
+    }
+
+    currentIndex = limit;
+}
+```

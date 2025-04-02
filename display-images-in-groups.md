@@ -318,7 +318,7 @@ function displayMoreProducts(){ // Đây là cách khai báo một hàm (functio
 
 ---
 
-## 🧾 Full JavaScript Code - ES6 syntax (with Explanation)
+## 🧾 JavaScript Code - ES6 syntax (with Explanation)
 
 ```javascript
 // (ES6 syntax)
@@ -427,4 +427,85 @@ const displayMoreProducts = () => {
 
 // 7️⃣ Lần sau bấm nút:
 //    └─ Lặp lại từ bước 2 ➝ Cho đến khi hết ảnh
+```
+
+---
+
+### ✨ jQuery Version
+
+```jQuery
+// ✅ Danh sách ảnh
+const products = [
+    "images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg",
+    "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg",
+    "images/9.jpg", "images/10.jpg", "images/11.jpg", "images/12.jpg",
+    "images/13.jpg", "images/14.jpg", "images/15.jpg", "images/16.jpg",
+    "images/17.jpg", "images/18.jpg", "images/19.jpg", "images/20.jpg",
+    "images/21.jpg", "images/22.jpg", "images/23.jpg", "images/24.jpg"
+];
+
+// ✅ Biến theo dõi vị trí hiển thị hiện tại
+let currentIndex = 0;
+
+// ✅ Gán sự kiện click bằng jQuery hiện đại
+$(document).ready(() => {
+  $("#btnSeeMore").on("click", () => {
+    displayMoreProducts();
+  });
+});
+
+// ✅ Hàm hiển thị ảnh – phiên bản jQuery
+const displayMoreProducts = () => {
+  const $container = $("#divSearchResult");
+
+  if (currentIndex >= products.length) {
+    alert("Đã hiển thị toàn bộ sản phẩm!");
+    return;
+  }
+
+  const limit = Math.min(currentIndex + 4, products.length);
+
+  // ✅ Tạo fragment ảo dùng jQuery (tạm thời là 1 mảng các DOM node)
+  const $fragment = $(document.createDocumentFragment());
+
+  for (let i = currentIndex; i < limit; i++) {
+    const $img = $("<img>", {
+      src: products[i],
+      class: "col-md-3 col-sm-6 col-xs-12 thumbnail",
+    });
+    $fragment.append($img);
+  }
+
+  // ✅ Gắn toàn bộ ảnh vào giao diện chỉ 1 lần
+  $container.append($fragment);
+
+  // ✅ Cập nhật lại vị trí chỉ số hiện tại
+  currentIndex = limit;
+};
+
+// 🔄 LUỒNG DỮ LIỆU TỔNG QUÁT (DATA FLOW)
+// 1️⃣ Trang web được tải lần đầu:
+//    ├─ Biến products[] được tạo, chứa 24 ảnh
+//    ├─ currentIndex = 0 (chưa hiển thị gì)
+//    └─ Gán sự kiện click bằng jQuery
+
+// 2️⃣ Người dùng click vào nút “Xem thêm”:
+//    └─ Gọi hàm displayMoreProducts()
+
+// 3️⃣ Trong hàm displayMoreProducts():
+//    ├─ Kiểm tra currentIndex >= products.length
+//    ├─ Nếu hết ảnh → thông báo + return
+//    └─ Ngược lại → hiển thị tiếp ảnh mới
+
+// 4️⃣ Tính chỉ số giới hạn:
+//    └─ limit = Math.min(currentIndex + 4, products.length)
+
+// 5️⃣ Duyệt qua từng ảnh:
+//    └─ Tạo thẻ img bằng jQuery → thêm vào $fragment
+
+// 6️⃣ Sau vòng lặp:
+//    └─ append $fragment vào $container bằng jQuery
+
+// 7️⃣ Cập nhật currentIndex:
+//    └─ currentIndex = limit
 ```

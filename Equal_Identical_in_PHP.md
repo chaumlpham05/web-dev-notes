@@ -119,13 +119,13 @@ if (a == b) {
 
 ## 💎 Khi nào nên dùng `===` trong PHP?
 
-| Tình huống                            | Dùng `===` không?         |
-| ------------------------------------- | ------------------------- |
+| Tình huống                            | Có nên dùng `===` không?   |
+| ------------------------------------- | -------------------------- |
 | So sánh mật khẩu, token, ID nhạy cảm  | ✅ Nên                     |
 | So sánh kết quả trả về từ API hoặc DB | ✅ Bắt buộc                |
-| Làm bài kiểm tra / chấm điểm          | ✅ Cực kỳ quan trọng       |
-| Dữ liệu nhập từ người dùng            | ✅ Cần kiểm tra chặt       |
-| So sánh số đơn giản, không có ép kiểu | ❌ `==` vẫn ổn nếu rõ ràng |
+| Kiểm tra phân quyền, trạng thái, v.v. | ✅ Luôn kiểm tra kiểu      |
+| Dữ liệu người dùng gửi từ form        | ✅ Có thể bị sai kiểu      |
+| So sánh số đơn giản, không có ép kiểu | ❌ `==` vẫn được nếu kiểm soát tốt |
 
 ---
 
@@ -137,17 +137,6 @@ if (a == b) {
   (*chỉ khi thật sự giống từ kiểu dữ liệu lẫn giá trị thì mới trùng khớp*)
 * Trong **PHP** cần `===` vì nó hay dễ dãi 😅
 * Trong **C/C++** không cần `===` vì nó nghiêm khắc từ trong trứng!
-
----
-
-## 🎯 Khi nào dùng `===`?
-
-| Tình huống                            | Có nên dùng `===` không?          |
-| ------------------------------------- | --------------------------------- |
-| So sánh mật khẩu, token, ID           | ✅ Rất nên                         |
-| Dữ liệu người dùng gửi từ form        | ✅ Có thể bị sai kiểu              |
-| Kiểm tra phân quyền, trạng thái, v.v. | ✅ Luôn kiểm tra kiểu              |
-| So sánh số cố định, không thay đổi    | ❌ `==` vẫn được nếu kiểm soát tốt |
 
 ---
 

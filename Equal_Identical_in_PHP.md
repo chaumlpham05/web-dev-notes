@@ -97,7 +97,6 @@ if (a == b) {
 }
 ```
 
-* Compiler **biết kiểu của từng biến ngay từ khi biên dịch**
 * Việc so sánh là **rõ ràng và chặt chẽ** từ bước biên dịch, không cần toán tử riêng để phân biệt kiểu như PHP.
 
 ### 💬 Tóm gọn:

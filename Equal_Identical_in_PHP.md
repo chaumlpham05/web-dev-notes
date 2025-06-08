@@ -84,7 +84,7 @@ Nó thực hiện:
 * Nếu khác kiểu, C/C++ sẽ:
   
   * Báo lỗi
-  * Hoặc ép kiểu tường minh (`cast`) và cảnh báo
+  * Hoặc yêu cầu ép kiểu tường minh (`cast`) và cảnh báo
 
 ## 🧪 Ví dụ minh họa trong C/C++:
 
@@ -127,7 +127,7 @@ if (a == b) {
 | So sánh kết quả trả về từ API hoặc DB | ✅ Bắt buộc                |
 | Kiểm tra phân quyền, trạng thái, v.v. | ✅ Luôn kiểm tra kiểu      |
 | Dữ liệu người dùng gửi từ form        | ✅ Có thể bị sai kiểu, cần kiểm tra chặt chẽ      |
-| So sánh số đơn giản, không có ép kiểu | ❌ `==` vẫn được nếu kiểm soát tốt |
+| So sánh số đơn giản, không có ép kiểu | ❌ `==` vẫn được nếu kiểm soát kiểu dữ liệu tốt |
 
 ---
 

@@ -144,7 +144,7 @@ if (a == b) {
 
 ## 💬 Lời kết:
 
-> Học `==` và `===` không chỉ để so sánh số, mà là để phân biệt được **cái nhìn bề ngoài và cái chân thực bên trong**.
+> Học `==` và `===` không chỉ để so sánh giá trị, mà là để phân biệt được **cái nhìn bề ngoài và cái chân thực bên trong**.
 > “Một lập trình viên giỏi không chỉ biết so sánh giá trị, mà còn biết so sánh bối cảnh, kiểu loại, và linh hồn của dữ liệu.
 > Trong thế giới lập trình, biết dùng `===` là dấu hiệu của một người không chỉ viết được hệ thống – mà còn giữ được sự chính xác như giữ một lời hứa.
 > `===` trong PHP là biểu tượng cho sự tinh tế, còn việc **không có `===`** trong C/C++ là biểu tượng cho sự kỷ luật.

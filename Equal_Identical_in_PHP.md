@@ -86,6 +86,8 @@ Nó thực hiện:
   * Báo lỗi
   * Hoặc ép kiểu tường minh (`cast`) và cảnh báo
 
+## 🧪 Ví dụ minh họa trong C/C++:
+
 ```c
 int a = 5;
 char b = '5';
@@ -124,7 +126,7 @@ if (a == b) {
 | So sánh mật khẩu, token, ID nhạy cảm  | ✅ Nên                     |
 | So sánh kết quả trả về từ API hoặc DB | ✅ Bắt buộc                |
 | Kiểm tra phân quyền, trạng thái, v.v. | ✅ Luôn kiểm tra kiểu      |
-| Dữ liệu người dùng gửi từ form        | ✅ Có thể bị sai kiểu      |
+| Dữ liệu người dùng gửi từ form        | ✅ Có thể bị sai kiểu, cần kiểm tra chặt chẽ      |
 | So sánh số đơn giản, không có ép kiểu | ❌ `==` vẫn được nếu kiểm soát tốt |
 
 ---
